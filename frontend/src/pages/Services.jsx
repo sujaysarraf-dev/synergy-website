@@ -18,7 +18,7 @@ import { services } from '../mock';
 
 export const Services = () => {
   const { language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState('civil');
+  const [activeCategory, setActiveCategory] = useState('all');
   
   // Use mock data directly - no backend calls needed
   const servicesData = services;
@@ -37,6 +37,11 @@ export const Services = () => {
   // Group services by category using mock data
   const groupServicesByCategory = (services) => {
     const categories = {
+      all: {
+        title: 'All Services',
+        description: 'Complete range of our professional services',
+        services: services
+      },
       civil: {
         title: 'Civil & Interior Work',
         description: 'Complete solutions for construction and interior design',
@@ -107,7 +112,14 @@ export const Services = () => {
           <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
             {/* Category Navigation */}
             <div className="flex justify-center mb-12">
-              <TabsList className="grid w-full max-w-md grid-cols-3 bg-gray-100 p-1 rounded-lg">
+              <TabsList className="grid w-full max-w-lg grid-cols-4 bg-gray-100 p-1 rounded-lg">
+                <TabsTrigger 
+                  value="all" 
+                  className="flex items-center gap-2 data-[state=active]:bg-orange-600 data-[state=active]:text-white"
+                >
+                  <Award className="h-4 w-4" />
+                  <span className="hidden sm:inline">{language === 'hi' ? 'सभी' : 'All'}</span>
+                </TabsTrigger>
                 <TabsTrigger 
                   value="civil" 
                   className="flex items-center gap-2 data-[state=active]:bg-orange-600 data-[state=active]:text-white"

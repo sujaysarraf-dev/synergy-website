@@ -52,6 +52,30 @@ export const services = [
   },
   {
     id: 2,
+    title: "Interior Design Services",
+    titleEn: "Professional Interior Design Solutions",
+    description: "Complete interior design services for residential and commercial spaces with modern aesthetics.",
+    descriptionHi: "आधुनिक aesthetics के साथ residential और commercial spaces के लिए complete interior design services।",
+    icon: "Building2",
+    features: [
+      "Home Interior Design",
+      "Office Interior Design",
+      "Modular Kitchen Design",
+      "Wardrobe Design",
+      "Living Room Design",
+      "Bedroom Design"
+    ],
+    pricing: {
+      basic: { name: "Basic Design", price: "₹30,000", features: ["Basic Design", "Material Selection", "Basic Consultation"] },
+      premium: { name: "Premium Design", price: "₹80,000", features: ["Complete Design", "Premium Materials", "3D Visualization", "Project Management"] },
+      luxury: { name: "Luxury Design", price: "₹1,50,000", features: ["Luxury Design", "High-End Materials", "Complete Execution", "After Sales Service"] }
+    },
+    timeline: "10-30 days design & execution",
+    warranty: "2 years design warranty",
+    image: "/photos/interior design.jpg"
+  },
+  {
+    id: 3,
     title: "Agriculture Solutions", 
     titleEn: "Smart Agriculture & Farming Solutions",
     description: "Modern agricultural technology and equipment for comprehensive farming solutions.",
@@ -75,7 +99,7 @@ export const services = [
     image: "/photos/drip irrigation system .jpg"
   },
   {
-    id: 3,
+    id: 4,
     title: "Solar Equipment Suppliers",
     titleEn: "Complete Solar Energy Solutions", 
     description: "Complete range of solar energy systems with government subsidies and support.",
@@ -96,6 +120,54 @@ export const services = [
     },
     timeline: "5-15 days installation",
     warranty: "10-25 years system warranty",
+    image: "/photos/solar plant installation.jpg"
+  },
+  {
+    id: 5,
+    title: "Commercial Construction",
+    titleEn: "Commercial Building Construction",
+    description: "Professional commercial construction services for offices, shops, and industrial buildings.",
+    descriptionHi: "Offices, shops और industrial buildings के लिए professional commercial construction services।",
+    icon: "Building2",
+    features: [
+      "Office Buildings",
+      "Shopping Complexes",
+      "Industrial Buildings",
+      "Warehouse Construction",
+      "Retail Spaces",
+      "Commercial Renovation"
+    ],
+    pricing: {
+      basic: { name: "Basic Construction", price: "₹2,000/sq ft", features: ["Basic Construction", "Standard Materials", "Basic Design"] },
+      premium: { name: "Premium Construction", price: "₹3,500/sq ft", features: ["Premium Construction", "Quality Materials", "Custom Design", "Project Management"] },
+      luxury: { name: "Luxury Construction", price: "₹5,000/sq ft", features: ["Luxury Construction", "Premium Materials", "Architectural Design", "Complete Turnkey"] }
+    },
+    timeline: "3-12 months depending on size",
+    warranty: "5 years construction warranty",
+    image: "/photos/civil construction.jpg"
+  },
+  {
+    id: 6,
+    title: "Solar Water Pump Systems",
+    titleEn: "Solar Powered Water Pumping Solutions",
+    description: "Efficient solar water pump systems for agriculture and domestic use with government subsidies.",
+    descriptionHi: "कृषि और domestic use के लिए efficient solar water pump systems। सरकारी सब्सिडी के साथ।",
+    icon: "Sun",
+    features: [
+      "Solar Submersible Pumps",
+      "Surface Solar Pumps",
+      "Solar Centrifugal Pumps",
+      "Solar Borewell Pumps",
+      "Government Subsidy Support",
+      "Installation & Maintenance"
+    ],
+    pricing: {
+      basic: { name: "1HP Solar Pump", price: "₹1,20,000", features: ["1HP Solar System", "Basic Installation", "1 Year Warranty"] },
+      premium: { name: "3HP Solar Pump", price: "₹2,80,000", features: ["3HP Solar System", "Premium Installation", "3 Year Warranty", "Maintenance"] },
+      luxury: { name: "5HP Solar Pump", price: "₹4,50,000", features: ["5HP Solar System", "Complete Installation", "5 Year Warranty", "Free Maintenance"] }
+    },
+    timeline: "3-7 days installation",
+    warranty: "5 years system warranty",
     image: "/photos/solar plant installation.jpg"
   }
 ];
