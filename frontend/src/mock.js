@@ -8,7 +8,7 @@ export const companyInfo = {
   address: "05, Chaudhary Market, Opposite Paras HMRI Hospital, Raja Bazar, Patna - 800014",
   phone: "+916123597570",
   email: "info@synergyindia.com",
-  whatsapp: "918507474141",
+  whatsapp: "918404861022",
   website: "www.synergyindia.com",
   logo: "/photos/logo.jpg",
   ownerPhoto: "/photos/owner.png",

@@ -31,7 +31,7 @@ export const Gallery = () => {
     const message = language === 'hi' ? 
       'नमस्ते! मुझे आपके projects के बारे में जानकारी चाहिए।' :
       'Hello! I would like to know about your projects.';
-    window.open(`https://wa.me/918507474141?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918404861022?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleCallClick = () => {

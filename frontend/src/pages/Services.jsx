@@ -27,7 +27,7 @@ export const Services = () => {
     const message = serviceName 
       ? `Hi, I am interested in your ${serviceName} services`
       : 'Hi, I am interested in your services';
-    window.open(`https://wa.me/918507474141?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918404861022?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleCallClick = () => {

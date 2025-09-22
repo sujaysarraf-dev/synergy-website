@@ -34,7 +34,7 @@ export const ServiceDetail = () => {
 
   const handleWhatsAppClick = () => {
     const message = `Hi, I am interested in your ${service?.title || 'services'} service`;
-    window.open(`https://wa.me/918507474141?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918404861022?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleCallClick = () => {
