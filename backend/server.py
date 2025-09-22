@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Depends, UploadFile, File, Form, status
+from fastapi.responses import FileResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
@@ -1128,7 +1129,23 @@ app.include_router(api_router)
 
 # Add static file serving for photos
 from fastapi.staticfiles import StaticFiles
+# Serve static files
 app.mount("/photos", StaticFiles(directory="../photos"), name="photos")
+app.mount("/static", StaticFiles(directory="../frontend/build/static"), name="static")
+
+# Serve React app
+@app.get("/{full_path:path}")
+async def serve_react_app(full_path: str):
+    # If it's an API call, let it pass through
+    if full_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="API endpoint not found")
+    
+    # Serve index.html for all other routes (React Router)
+    index_path = Path("../frontend/build/index.html")
+    if index_path.exists():
+        return FileResponse(index_path)
+    else:
+        raise HTTPException(status_code=404, detail="Frontend not built")
 
 app.add_middleware(
     CORSMiddleware,
