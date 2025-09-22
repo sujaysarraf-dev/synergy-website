@@ -124,7 +124,7 @@ export const Contact = () => {
     {
       icon: MessageCircle,
       title: 'WhatsApp',
-      value: companyInfo.phone,
+      value: `+${companyInfo.whatsapp}`,
       description: language === 'hi' ? 'तुरंत मैसेज के लिए' : 'For instant messaging',
       action: handleWhatsAppClick,
       color: 'text-green-600'
@@ -384,7 +384,7 @@ export const Contact = () => {
                     <MessageCircle className="h-5 w-5 text-green-600" />
                     <div>
                       <div className="font-semibold text-gray-900">WhatsApp</div>
-                      <div className="text-gray-700">{companyInfo.phone}</div>
+                      <div className="text-gray-700">+{companyInfo.whatsapp}</div>
                     </div>
                   </div>
 
