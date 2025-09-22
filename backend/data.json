@@ -1,0 +1,19 @@
+{
+  "admin_users": [
+    {
+      "id": "2fd16c0f-6743-4659-bd8f-309b29f34709",
+      "username": "admin",
+      "hashed_password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+      "created_at": "2025-09-20 08:56:45.780068+00:00",
+      "last_login": null
+    }
+  ],
+  "services": [],
+  "gallery": [],
+  "leads": [],
+  "contact_form_settings": [],
+  "cta_settings": [],
+  "general_settings": [],
+  "login_history": [],
+  "status_checks": []
+}
