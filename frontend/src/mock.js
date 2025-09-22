@@ -28,79 +28,175 @@ export const companyPhotos = {
 export const services = [
   {
     id: 1,
-    title: "Civil & Interior Work",
-    titleEn: "Complete Civil & Interior Solutions",
-    description: "Modern design and quality construction work from homes to commercial spaces.",
-    descriptionHi: "आधुनिक डिजाइन और गुणवत्तापूर्ण निर्माण कार्य। घर से लेकर कमर्शियल स्पेस तक।",
+    title: "Civil Construction",
+    titleEn: "Professional Civil Construction Services",
+    description: "Complete civil construction services for residential and commercial buildings with modern techniques and quality materials.",
+    descriptionHi: "आधुनिक तकनीक और गुणवत्तापूर्ण सामग्री के साथ residential और commercial buildings के लिए complete civil construction services।",
     icon: "Building2",
     features: [
-      "Residential Construction",
-      "Interior Design & Fitout", 
-      "Commercial Buildings",
-      "Renovation & Remodeling",
-      "Modular Kitchen",
-      "False Ceiling & Lighting"
+      "Foundation & Structure",
+      "Brick Work & Masonry", 
+      "Concrete Work",
+      "Plumbing & Electrical",
+      "Roofing & Waterproofing",
+      "Quality Control & Testing"
     ],
     pricing: {
-      basic: { name: "Basic Package", price: "₹50,000", features: ["Basic Interior Design", "Standard Materials", "Basic Warranty"] },
-      premium: { name: "Premium Package", price: "₹1,50,000", features: ["Premium Interior Design", "High-Quality Materials", "Extended Warranty", "Project Management"] },
-      luxury: { name: "Luxury Package", price: "₹3,00,000", features: ["Luxury Interior Design", "Premium Materials", "Lifetime Support", "Dedicated Project Manager"] }
+      basic: { name: "Basic Construction", price: "₹1,200/sq ft", features: ["Basic Construction", "Standard Materials", "Basic Design"] },
+      premium: { name: "Premium Construction", price: "₹1,800/sq ft", features: ["Premium Construction", "Quality Materials", "Custom Design", "Project Management"] },
+      luxury: { name: "Luxury Construction", price: "₹2,500/sq ft", features: ["Luxury Construction", "Premium Materials", "Architectural Design", "Complete Turnkey"] }
     },
-    timeline: "15-45 days depending on project scope",
-    warranty: "1 year construction warranty",
+    timeline: "3-12 months depending on size",
+    warranty: "5 years construction warranty",
     image: "/photos/civil construction.jpg"
   },
   {
     id: 2,
-    title: "Interior Design Services",
-    titleEn: "Professional Interior Design Solutions",
-    description: "Complete interior design services for residential and commercial spaces with modern aesthetics.",
-    descriptionHi: "आधुनिक aesthetics के साथ residential और commercial spaces के लिए complete interior design services।",
+    title: "Renovation & Remodeling",
+    titleEn: "Complete Renovation Solutions",
+    description: "Transform your existing spaces with our professional renovation and remodeling services for homes and offices.",
+    descriptionHi: "हमारी professional renovation और remodeling services के साथ अपने existing spaces को transform करें।",
     icon: "Building2",
     features: [
-      "Home Interior Design",
-      "Office Interior Design",
-      "Modular Kitchen Design",
-      "Wardrobe Design",
-      "Living Room Design",
-      "Bedroom Design"
+      "Home Renovation",
+      "Office Remodeling",
+      "Kitchen Renovation",
+      "Bathroom Remodeling",
+      "Structural Changes",
+      "Modern Upgrades"
     ],
     pricing: {
-      basic: { name: "Basic Design", price: "₹30,000", features: ["Basic Design", "Material Selection", "Basic Consultation"] },
-      premium: { name: "Premium Design", price: "₹80,000", features: ["Complete Design", "Premium Materials", "3D Visualization", "Project Management"] },
-      luxury: { name: "Luxury Design", price: "₹1,50,000", features: ["Luxury Design", "High-End Materials", "Complete Execution", "After Sales Service"] }
+      basic: { name: "Basic Renovation", price: "₹75,000", features: ["Basic Renovation", "Standard Materials", "Basic Design"] },
+      premium: { name: "Premium Renovation", price: "₹2,00,000", features: ["Premium Renovation", "Quality Materials", "Custom Design", "Project Management"] },
+      luxury: { name: "Luxury Renovation", price: "₹4,00,000", features: ["Luxury Renovation", "Premium Materials", "Complete Transformation", "After Sales Service"] }
     },
-    timeline: "10-30 days design & execution",
-    warranty: "2 years design warranty",
-    image: "/photos/interior design.jpg"
+    timeline: "15-60 days depending on scope",
+    warranty: "2 years renovation warranty",
+    image: "/photos/remodeling.jpg"
   },
   {
     id: 3,
-    title: "Agriculture Solutions", 
-    titleEn: "Smart Agriculture & Farming Solutions",
-    description: "Modern agricultural technology and equipment for comprehensive farming solutions.",
-    descriptionHi: "आधुनिक कृषि तकनीक और उपकरण। किसानों की आय बढ़ाने के लिए समग्र समाधान।",
-    icon: "Wheat",
+    title: "Interior Design & Execution",
+    titleEn: "Professional Interior Design Services",
+    description: "Complete interior design and execution services for residential and commercial spaces with modern aesthetics.",
+    descriptionHi: "आधुनिक aesthetics के साथ residential और commercial spaces के लिए complete interior design और execution services।",
+    icon: "Building2",
     features: [
-      "Solar Water Pumps",
-      "Drip Irrigation Systems",
-      "Greenhouse Solutions",
-      "Agricultural Equipment",
-      "Crop Advisory Services",
-      "Government Scheme Support"
+      "Interior Design Planning",
+      "3D Visualization",
+      "Material Selection",
+      "Furniture & Fixtures",
+      "Lighting Design",
+      "Complete Execution"
     ],
     pricing: {
-      basic: { name: "Starter Farmer", price: "₹25,000", features: ["Basic Irrigation Setup", "Solar Pump", "Installation"] },
-      premium: { name: "Smart Farmer", price: "₹75,000", features: ["Advanced Irrigation", "IoT Monitoring", "Crop Advisory", "Maintenance"] },
-      luxury: { name: "Commercial Farm", price: "₹2,00,000", features: ["Complete Automation", "Advanced Analytics", "Expert Support", "Expansion Planning"] }
+      basic: { name: "Basic Design", price: "₹1,00,000", features: ["Basic Interior Design", "Standard Materials", "Basic Consultation"] },
+      premium: { name: "Premium Design", price: "₹2,50,000", features: ["Premium Interior Design", "Quality Materials", "3D Visualization", "Project Management"] },
+      luxury: { name: "Luxury Design", price: "₹5,00,000", features: ["Luxury Interior Design", "Premium Materials", "Complete Execution", "After Sales Service"] }
     },
-    timeline: "7-21 days installation",
-    warranty: "2-5 years equipment warranty",
-    image: "/photos/drip irrigation system .jpg"
+    timeline: "30-90 days design & execution",
+    warranty: "3 years design warranty",
+    image: "/photos/interior design.jpg"
   },
   {
     id: 4,
-    title: "Solar Equipment Suppliers",
+    title: "Finishing & Aesthetic Works",
+    titleEn: "Premium Finishing Solutions",
+    description: "High-quality finishing and aesthetic works including painting, polishing, and decorative elements.",
+    descriptionHi: "Painting, polishing और decorative elements सहित high-quality finishing और aesthetic works।",
+    icon: "Building2",
+    features: [
+      "Painting & Wall Finishes",
+      "Floor Polishing",
+      "False Ceiling",
+      "Decorative Elements",
+      "Textured Finishes",
+      "Color Consultation"
+    ],
+    pricing: {
+      basic: { name: "Basic Finishing", price: "₹40,000", features: ["Basic Finishing", "Standard Materials", "Basic Design"] },
+      premium: { name: "Premium Finishing", price: "₹1,00,000", features: ["Premium Finishing", "Quality Materials", "Custom Design", "Color Consultation"] },
+      luxury: { name: "Luxury Finishing", price: "₹2,00,000", features: ["Luxury Finishing", "Premium Materials", "Complete Aesthetic", "Design Consultation"] }
+    },
+    timeline: "10-30 days depending on area",
+    warranty: "2 years finishing warranty",
+    image: "/photos/finishing and astehic work.jpg"
+  },
+  {
+    id: 5,
+    title: "Commercial Interiors",
+    titleEn: "Professional Commercial Interior Solutions",
+    description: "Specialized commercial interior design and execution for offices, shops, restaurants, and business spaces.",
+    descriptionHi: "Offices, shops, restaurants और business spaces के लिए specialized commercial interior design और execution।",
+    icon: "Building2",
+    features: [
+      "Office Interior Design",
+      "Retail Space Design",
+      "Restaurant Interiors",
+      "Showroom Design",
+      "Commercial Lighting",
+      "Brand Integration"
+    ],
+    pricing: {
+      basic: { name: "Basic Commercial", price: "₹1,50,000", features: ["Basic Commercial Design", "Standard Materials", "Basic Consultation"] },
+      premium: { name: "Premium Commercial", price: "₹3,50,000", features: ["Premium Commercial Design", "Quality Materials", "3D Visualization", "Project Management"] },
+      luxury: { name: "Luxury Commercial", price: "₹7,00,000", features: ["Luxury Commercial Design", "Premium Materials", "Complete Brand Integration", "After Sales Service"] }
+    },
+    timeline: "45-120 days design & execution",
+    warranty: "3 years commercial warranty",
+    image: "/photos/commercial intereios.jpg"
+  },
+  {
+    id: 6,
+    title: "💧 Drip Irrigation System",
+    titleEn: "Water-Efficient Drip Irrigation Solutions",
+    description: "A modern water-efficient solution that supplies water directly to the root zone of each plant through a controlled drop-by-drop method. This system not only saves 40–60% of water but also allows uniform fertilizer distribution, reduces weed growth, and ensures healthier crops with higher productivity. Ideal for fruits, vegetables, and orchard farming.",
+    descriptionHi: "एक आधुनिक water-efficient solution जो controlled drop-by-drop method के through each plant के root zone में directly water supply करता है। यह system न केवल 40-60% पानी बचाता है बल्कि uniform fertilizer distribution भी allow करता है।",
+    icon: "Wheat",
+    features: [
+      "Water Conservation (40-60% savings)",
+      "Uniform Fertilizer Distribution",
+      "Reduced Weed Growth",
+      "Healthier Crops",
+      "Higher Productivity",
+      "Ideal for Fruits & Vegetables"
+    ],
+    pricing: {
+      basic: { name: "Basic Drip System", price: "₹25,000", features: ["Basic Drip Setup", "Standard Components", "Installation"] },
+      premium: { name: "Smart Drip System", price: "₹75,000", features: ["Advanced Drip System", "Automation", "Fertilizer Integration", "Maintenance"] },
+      luxury: { name: "Commercial Drip", price: "₹2,00,000", features: ["Complete Automation", "Advanced Monitoring", "Expert Support", "Expansion Planning"] }
+    },
+    timeline: "5-15 days installation",
+    warranty: "5 years system warranty",
+    image: "/photos/drip irrigation system .jpg"
+  },
+  {
+    id: 7,
+    title: "🌧 Sprinkler Irrigation System",
+    titleEn: "Advanced Sprinkler Irrigation Solutions",
+    description: "An advanced irrigation technique that sprays water under pressure to simulate natural rainfall. It provides uniform water coverage across the field, prevents soil erosion, and is suitable for almost all types of crops including cereals, pulses, and vegetables. This system helps reduce labor costs, saves time, and increases efficiency in both small and large-scale farms.",
+    descriptionHi: "एक advanced irrigation technique जो natural rainfall को simulate करने के लिए pressure के under water spray करता है। यह uniform water coverage provide करता है और soil erosion को prevent करता है।",
+    icon: "Wheat",
+    features: [
+      "Natural Rainfall Simulation",
+      "Uniform Water Coverage",
+      "Soil Erosion Prevention",
+      "Suitable for All Crops",
+      "Reduced Labor Costs",
+      "Increased Efficiency"
+    ],
+    pricing: {
+      basic: { name: "Basic Sprinkler", price: "₹35,000", features: ["Basic Sprinkler Setup", "Standard Components", "Installation"] },
+      premium: { name: "Smart Sprinkler", price: "₹85,000", features: ["Advanced Sprinkler System", "Automation", "Pressure Control", "Maintenance"] },
+      luxury: { name: "Commercial Sprinkler", price: "₹2,50,000", features: ["Complete Automation", "Advanced Monitoring", "Expert Support", "Expansion Planning"] }
+    },
+    timeline: "7-21 days installation",
+    warranty: "5 years system warranty",
+    image: "/photos/srinkler irrigation system.jpg"
+  },
+  {
+    id: 8,
+    title: "Solar Plant Installation with Government Support",
     titleEn: "Complete Solar Energy Solutions", 
     description: "Complete range of solar energy systems with government subsidies and support.",
     descriptionHi: "सौर ऊर्जा सिस्टम की पूरी रेंज। सरकारी सब्सिडी के साथ किफायती समाधान।",
@@ -120,54 +216,6 @@ export const services = [
     },
     timeline: "5-15 days installation",
     warranty: "10-25 years system warranty",
-    image: "/photos/solar plant installation.jpg"
-  },
-  {
-    id: 5,
-    title: "Commercial Construction",
-    titleEn: "Commercial Building Construction",
-    description: "Professional commercial construction services for offices, shops, and industrial buildings.",
-    descriptionHi: "Offices, shops और industrial buildings के लिए professional commercial construction services।",
-    icon: "Building2",
-    features: [
-      "Office Buildings",
-      "Shopping Complexes",
-      "Industrial Buildings",
-      "Warehouse Construction",
-      "Retail Spaces",
-      "Commercial Renovation"
-    ],
-    pricing: {
-      basic: { name: "Basic Construction", price: "₹2,000/sq ft", features: ["Basic Construction", "Standard Materials", "Basic Design"] },
-      premium: { name: "Premium Construction", price: "₹3,500/sq ft", features: ["Premium Construction", "Quality Materials", "Custom Design", "Project Management"] },
-      luxury: { name: "Luxury Construction", price: "₹5,000/sq ft", features: ["Luxury Construction", "Premium Materials", "Architectural Design", "Complete Turnkey"] }
-    },
-    timeline: "3-12 months depending on size",
-    warranty: "5 years construction warranty",
-    image: "/photos/civil construction.jpg"
-  },
-  {
-    id: 6,
-    title: "Solar Water Pump Systems",
-    titleEn: "Solar Powered Water Pumping Solutions",
-    description: "Efficient solar water pump systems for agriculture and domestic use with government subsidies.",
-    descriptionHi: "कृषि और domestic use के लिए efficient solar water pump systems। सरकारी सब्सिडी के साथ।",
-    icon: "Sun",
-    features: [
-      "Solar Submersible Pumps",
-      "Surface Solar Pumps",
-      "Solar Centrifugal Pumps",
-      "Solar Borewell Pumps",
-      "Government Subsidy Support",
-      "Installation & Maintenance"
-    ],
-    pricing: {
-      basic: { name: "1HP Solar Pump", price: "₹1,20,000", features: ["1HP Solar System", "Basic Installation", "1 Year Warranty"] },
-      premium: { name: "3HP Solar Pump", price: "₹2,80,000", features: ["3HP Solar System", "Premium Installation", "3 Year Warranty", "Maintenance"] },
-      luxury: { name: "5HP Solar Pump", price: "₹4,50,000", features: ["5HP Solar System", "Complete Installation", "5 Year Warranty", "Free Maintenance"] }
-    },
-    timeline: "3-7 days installation",
-    warranty: "5 years system warranty",
     image: "/photos/solar plant installation.jpg"
   }
 ];

@@ -25,11 +25,11 @@ export const ServiceDetail = () => {
     
     if (foundService) {
       setService(foundService);
-    } else {
+        } else {
       setError('Service not found');
     }
     
-    setLoading(false);
+        setLoading(false);
   }, [slug]);
 
   const handleWhatsAppClick = () => {
@@ -156,15 +156,15 @@ export const ServiceDetail = () => {
                   {language === 'hi' ? 'हमारी सेवाओं में शामिल मुख्य विशेषताएं' : 'Key features included in our services'}
                 </p>
               </div>
-              
+
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {service.features.map((feature, index) => (
                   <div key={index} className="bg-white rounded-lg p-4 shadow-md border-l-4 border-orange-600">
                     <div className="flex items-start">
                       <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0" />
                       <span className="text-gray-700 font-medium">{feature}</span>
-                    </div>
-                  </div>
+                </div>
+                </div>
                 ))}
               </div>
             </div>
