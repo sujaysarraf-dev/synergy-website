@@ -61,11 +61,11 @@ export const Services = () => {
 
     services.forEach(service => {
       const title = service.title.toLowerCase();
-      if (title.includes('civil') || title.includes('interior')) {
+      if (title.includes('civil') || title.includes('interior') || title.includes('commercial construction')) {
         categories.civil.services.push(service);
-      } else if (title.includes('agriculture') || title.includes('farm') || title.includes('irrigation') || title.includes('drip') || title.includes('sprinkler')) {
+      } else if (title.includes('agriculture') || title.includes('water pump')) {
         categories.agriculture.services.push(service);
-      } else if (title.includes('solar')) {
+      } else if (title.includes('solar equipment')) {
         categories.solar.services.push(service);
       } else {
         // Default to civil if not categorized
