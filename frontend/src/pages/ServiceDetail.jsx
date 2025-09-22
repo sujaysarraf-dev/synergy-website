@@ -6,10 +6,10 @@ import {
   ArrowLeft,
   Phone,
   MessageCircle,
-  Loader2,
   ChevronLeft
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { services } from '../mock';
 
 export const ServiceDetail = () => {
   const { slug } = useParams(); // This will be the service ID
@@ -17,65 +17,35 @@ export const ServiceDetail = () => {
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [ctaSettings, setCTASettings] = useState(null);
 
-  // Fetch service details and CTA settings
+  // Find service from mock data - no backend calls needed
   useEffect(() => {
-    const fetchServiceDetails = async () => {
-      try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
-        
-        // Fetch service details
-        const serviceResponse = await fetch(`${backendUrl}/api/services/${slug}`);
-        if (serviceResponse.ok) {
-          const serviceData = await serviceResponse.json();
-          // Construct full image URLs
-          const serviceWithFullUrls = {
-            ...serviceData,
-            images: serviceData.images ? serviceData.images.map(img => 
-              img.startsWith('http') ? img : `${backendUrl}${img}`
-            ) : []
-          };
-          setService(serviceWithFullUrls);
-        } else {
-          throw new Error('Service not found');
-        }
-
-        // Fetch CTA settings
-        const ctaResponse = await fetch(`${backendUrl}/api/settings/cta`);
-        if (ctaResponse.ok) {
-          const ctaData = await ctaResponse.json();
-          setCTASettings(ctaData);
-        }
-
-      } catch (error) {
-        console.error('Error fetching service details:', error);
-        setError('Failed to load service details');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServiceDetails();
+    const serviceId = parseInt(slug);
+    const foundService = services.find(s => s.id === serviceId);
+    
+    if (foundService) {
+      setService(foundService);
+    } else {
+      setError('Service not found');
+    }
+    
+    setLoading(false);
   }, [slug]);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = ctaSettings?.whatsapp_number || '918507474141';
-    const template = ctaSettings?.whatsapp_template || 'Hi, I am interested in your {service_name} service';
-    const message = template.replace('{service_name}', service?.title || 'services');
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    const message = `Hi, I am interested in your ${service?.title || 'services'} service`;
+    window.open(`https://wa.me/918507474141?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleCallClick = () => {
-    const phoneNumber = ctaSettings?.call_number || '+916123597570';
-    window.location.href = `tel:${phoneNumber}`;
+    window.location.href = 'tel:+916123597570';
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="flex items-center space-x-2">
-          <Loader2 className="h-6 w-6 animate-spin" />
+          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-orange-600"></div>
           <span>Loading service details...</span>
         </div>
       </div>
@@ -119,9 +89,7 @@ export const ServiceDetail = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="relative h-64 md:h-96 overflow-hidden rounded-lg shadow-lg">
             <img 
-              src={service.images && service.images.length > 0 
-                ? service.images[0] 
-                : 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+              src={service.image || 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
               } 
               alt={service.title}
               className="w-full h-full object-cover"
@@ -151,7 +119,7 @@ export const ServiceDetail = () => {
             {/* Description */}
             <div className="prose prose-lg max-w-none text-gray-600">
               <p className="text-lg leading-relaxed">
-                {service.overview || 'Professional service with quality and expertise.'}
+                {service.description || 'Professional service with quality and expertise.'}
               </p>
             </div>
           </div>
