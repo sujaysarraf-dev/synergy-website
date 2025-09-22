@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: synergy-website
+    env: python
+    buildCommand: |
+      cd frontend && npm install --legacy-peer-deps && npm run build
+      cd ../backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PYTHON_VERSION
+        value: 3.11
