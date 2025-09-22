@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
@@ -11,48 +11,17 @@ import {
   Award,
   Phone,
   MessageCircle,
-  ArrowRight,
-  Loader2
+  ArrowRight
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { services } from '../mock';
 
 export const Services = () => {
   const { language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('civil');
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   
-  // Fetch services from backend
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
-        const response = await fetch(`${backendUrl}/api/services`);
-        
-        if (response.ok) {
-          const servicesData = await response.json();
-          // Filter only active services and construct full image URLs
-          const activeServices = servicesData.filter(service => service.is_active).map(service => ({
-            ...service,
-            images: service.images ? service.images.map(img => 
-              img.startsWith('http') ? img : `${backendUrl}${img}`
-            ) : []
-          }));
-          setServices(activeServices);
-        } else {
-          throw new Error('Failed to fetch services');
-        }
-      } catch (error) {
-        console.error('Error fetching services:', error);
-        setError('Failed to load services');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchServices();
-  }, []);
+  // Use mock data directly - no backend calls needed
+  const servicesData = services;
   
   const handleWhatsAppClick = (serviceName = '') => {
     const message = serviceName 
@@ -65,7 +34,7 @@ export const Services = () => {
     window.location.href = 'tel:+916123597570';
   };
 
-  // Group services by category
+  // Group services by category using mock data
   const groupServicesByCategory = (services) => {
     const categories = {
       civil: {
@@ -87,7 +56,7 @@ export const Services = () => {
 
     services.forEach(service => {
       const title = service.title.toLowerCase();
-      if (title.includes('civil') || title.includes('interior') || title.includes('renovation') || title.includes('remodeling') || title.includes('finishing') || title.includes('commercial')) {
+      if (title.includes('civil') || title.includes('interior')) {
         categories.civil.services.push(service);
       } else if (title.includes('agriculture') || title.includes('farm') || title.includes('irrigation') || title.includes('drip') || title.includes('sprinkler')) {
         categories.agriculture.services.push(service);
@@ -102,32 +71,7 @@ export const Services = () => {
     return categories;
   };
 
-  // Display all services in a single grid (no categories)
-  const allActiveServices = services.filter(service => service.is_active);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading services...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-red-600 mb-4">{error}</p>
-          <Button onClick={() => window.location.reload()}>Try Again</Button>
-        </div>
-      </div>
-    );
-  }
-
-  const serviceCategories = groupServicesByCategory(services);
+  const serviceCategories = groupServicesByCategory(servicesData);
 
   const pageContent = {
     title: language === 'hi' ? 'हमारी सेवाएं' : 'Our Services',
@@ -208,9 +152,7 @@ export const Services = () => {
                       {/* Service Image */}
                       <div className="relative h-64 overflow-hidden">
                         <img 
-                          src={service.images && service.images.length > 0 
-                            ? service.images[0] 
-                            : 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+                          src={service.image || 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
                           } 
                           alt={service.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -225,7 +167,7 @@ export const Services = () => {
                       <CardContent className="p-6">
                         {/* Short Intro */}
                         <p className="text-gray-600 mb-6 text-sm leading-relaxed line-clamp-3">
-                          {service.short_intro || service.overview?.substring(0, 100) + '...' || 'Professional service with quality and expertise.'}
+                          {service.description || 'Professional service with quality and expertise.'}
                         </p>
                         
                         {/* Buttons */}

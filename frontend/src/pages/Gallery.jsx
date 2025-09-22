@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
@@ -7,83 +7,36 @@ import {
   Phone,
   MessageCircle,
   Eye,
-  X,
-  Loader2
+  X
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { companyInfo } from '../mock';
+import { companyInfo, portfolioItems } from '../mock';
 
 export const Gallery = () => {
   const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState(null);
-  const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  // Fetch gallery images from backend
-  useEffect(() => {
-    const fetchGalleryImages = async () => {
-      try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
-        const response = await fetch(`${backendUrl}/api/gallery`);
-        
-        if (response.ok) {
-          const imagesData = await response.json();
-          // Filter only active images, sort by order, and construct full image URLs
-          const activeImages = imagesData
-            .filter(image => image.is_active)
-            .sort((a, b) => a.order - b.order)
-            .map(image => ({
-              ...image,
-              url: image.url.startsWith('http') ? image.url : `${backendUrl}${image.url}`
-            }));
-          setGalleryImages(activeImages);
-        } else {
-          throw new Error('Failed to fetch gallery images');
-        }
-      } catch (error) {
-        console.error('Error fetching gallery images:', error);
-        setError('Failed to load gallery images');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchGalleryImages();
-  }, []);
+  // Use portfolio items as gallery images - no backend calls needed
+  const galleryImages = portfolioItems.map(item => ({
+    id: item.id,
+    url: item.image,
+    caption: item.title,
+    title: item.title,
+    category: item.category,
+    location: item.location,
+    alt_text: item.description
+  }));
   
   const handleWhatsAppClick = () => {
     const message = language === 'hi' ? 
       'नमस्ते! मुझे आपके projects के बारे में जानकारी चाहिए।' :
       'Hello! I would like to know about your projects.';
-    window.open(`https://wa.me/918404861022?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918507474141?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   const handleCallClick = () => {
-    window.location.href = 'tel:+918404861022';
+    window.location.href = 'tel:+916123597570';
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="flex items-center space-x-2">
-          <Loader2 className="h-6 w-6 animate-spin" />
-          <span>Loading gallery...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-red-600 mb-4">{error}</p>
-          <Button onClick={() => window.location.reload()}>Try Again</Button>
-        </div>
-      </div>
-    );
-  }
 
   const pageContent = {
     title: language === 'hi' ? 'हमारी कार्य गैलरी' : 'Our Work Gallery',
