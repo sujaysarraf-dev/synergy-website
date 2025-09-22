@@ -145,174 +145,32 @@ export const ServiceDetail = () => {
             </Button>
           </div>
 
-          {/* Additional Service Information */}
-          {(service.sub_services?.length > 0 || service.benefits?.length > 0) && (
-            <div className="grid md:grid-cols-2 gap-8 mt-12">
-              {/* Sub Services */}
-              {service.sub_services?.length > 0 && (
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                    {language === 'hi' ? 'सेवाओं में शामिल' : 'Services Included'}
-                  </h3>
-                  <ul className="space-y-2">
-                    {service.sub_services.map((subService, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{subService}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Benefits */}
-              {service.benefits?.length > 0 && (
-                <div className="bg-white rounded-lg p-6 shadow-md">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                    {language === 'hi' ? 'मुख्य लाभ' : 'Key Benefits'}
-                  </h3>
-                  <ul className="space-y-2">
-                    {service.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Pricing Section - Hidden for all services */}
-          {false && (
-            <div className="mt-12 bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg p-8">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {language === 'hi' ? 'पारदर्शी मूल्य निर्धारण' : 'Transparent Pricing'}
-                </h3>
-                <p className="text-gray-600">
-                  {language === 'hi' ? 'हमारी सेवाओं के लिए प्रतिस्पर्धी और पारदर्शी मूल्य' : 'Competitive and transparent pricing for our services'}
-                </p>
-              </div>
-              
-              <div className="grid md:grid-cols-3 gap-6">
-                {/* Basic Package */}
-                <div className="bg-white rounded-lg p-6 shadow-md text-center">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'बेसिक पैकेज' : 'Basic Package'}
-                  </h4>
-                  <div className="text-3xl font-bold text-orange-600 mb-4">
-                    {service.title.includes('Renovation') ? '₹75,000' :
-                     service.title.includes('Interior') ? '₹1,00,000' :
-                     service.title.includes('Finishing') ? '₹40,000' : '₹80,000'}
-                  </div>
-                  <ul className="space-y-2 text-sm text-gray-600 mb-4">
-                    <li>• {language === 'hi' ? 'बुनियादी सेवाएं' : 'Basic Services'}</li>
-                    <li>• {language === 'hi' ? 'गुणवत्तापूर्ण सामग्री' : 'Quality Materials'}</li>
-                    <li>• {language === 'hi' ? '1 साल की वारंटी' : '1 Year Warranty'}</li>
-                  </ul>
-                </div>
-
-                {/* Premium Package */}
-                <div className="bg-white rounded-lg p-6 shadow-md text-center border-2 border-orange-600 relative">
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                      {language === 'hi' ? 'सबसे लोकप्रिय' : 'Most Popular'}
-                    </span>
-                  </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'प्रीमियम पैकेज' : 'Premium Package'}
-                  </h4>
-                  <div className="text-3xl font-bold text-orange-600 mb-4">
-                    {service.title.includes('Renovation') ? '₹2,00,000' :
-                     service.title.includes('Interior') ? '₹2,50,000' :
-                     service.title.includes('Finishing') ? '₹1,00,000' : '₹1,80,000'}
-                  </div>
-                  <ul className="space-y-2 text-sm text-gray-600 mb-4">
-                    <li>• {language === 'hi' ? 'उन्नत सेवाएं' : 'Advanced Services'}</li>
-                    <li>• {language === 'hi' ? 'प्रीमियम सामग्री' : 'Premium Materials'}</li>
-                    <li>• {language === 'hi' ? '2 साल की वारंटी' : '2 Year Warranty'}</li>
-                    <li>• {language === 'hi' ? 'निःशुल्क रखरखाव' : 'Free Maintenance'}</li>
-                  </ul>
-                </div>
-
-                {/* Luxury Package */}
-                <div className="bg-white rounded-lg p-6 shadow-md text-center">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'लक्जरी पैकेज' : 'Luxury Package'}
-                  </h4>
-                  <div className="text-3xl font-bold text-orange-600 mb-4">
-                    {service.title.includes('Renovation') ? '₹4,00,000' :
-                     service.title.includes('Interior') ? '₹5,00,000' :
-                     service.title.includes('Finishing') ? '₹2,00,000' : '₹3,50,000'}
-                  </div>
-                  <ul className="space-y-2 text-sm text-gray-600 mb-4">
-                    <li>• {language === 'hi' ? 'लक्जरी सेवाएं' : 'Luxury Services'}</li>
-                    <li>• {language === 'hi' ? 'उच्चतम गुणवत्ता' : 'Highest Quality'}</li>
-                    <li>• {language === 'hi' ? '5 साल की वारंटी' : '5 Year Warranty'}</li>
-                    <li>• {language === 'hi' ? 'समर्पित प्रबंधक' : 'Dedicated Manager'}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Process Section - Hidden for all services */}
-          {false && (
+          {/* Features Section */}
+          {service.features?.length > 0 && (
             <div className="mt-12">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {language === 'hi' ? 'हमारी प्रक्रिया' : 'Our Process'}
+                  {language === 'hi' ? 'सेवा विशेषताएं' : 'Service Features'}
                 </h3>
                 <p className="text-gray-600">
-                  {language === 'hi' ? 'आपके प्रोजेक्ट को सफल बनाने के लिए हमारी व्यवस्थित प्रक्रिया' : 'Our systematic process to make your project successful'}
+                  {language === 'hi' ? 'हमारी सेवाओं में शामिल मुख्य विशेषताएं' : 'Key features included in our services'}
                 </p>
               </div>
-
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'सलाह' : 'Consultation'}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {language === 'hi' ? 'निःशुल्क साइट विजिट और आवश्यकता का मूल्यांकन' : 'Free site visit and requirement assessment'}
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'डिजाइन' : 'Design'}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {language === 'hi' ? 'कस्टम डिजाइन और 3D विजुअलाइजेशन' : 'Custom design and 3D visualization'}
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'कार्यान्वयन' : 'Execution'}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {language === 'hi' ? 'पेशेवर कार्यान्वयन और गुणवत्ता नियंत्रण' : 'Professional execution and quality control'}
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
-                    {language === 'hi' ? 'समर्थन' : 'Support'}
-                  </h4>
-                  <p className="text-sm text-gray-600">
-                    {language === 'hi' ? 'हैंडओवर और निरंतर सहायता' : 'Handover and ongoing support'}
-                  </p>
-                </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {service.features.map((feature, index) => (
+                  <div key={index} className="bg-white rounded-lg p-4 shadow-md border-l-4 border-orange-600">
+                    <div className="flex items-start">
+                      <div className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700 font-medium">{feature}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
+
+
 
           {/* Final CTA Section */}
           <div className="mt-12 bg-gradient-to-r from-orange-600 to-orange-700 rounded-lg p-8 text-center text-white">
